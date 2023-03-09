@@ -23,6 +23,7 @@ git clone --recurse-submodules <repository-url>
 | | |
 
 ```bash
+pip install tqdm
 python script.py --help
 ```
 

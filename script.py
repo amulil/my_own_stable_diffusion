@@ -1,5 +1,6 @@
 import os
 import sys
+from tqdm import tqdm
 import urllib.request
 
 def print_usage():
@@ -26,9 +27,14 @@ path = './models/Stable-diffusion'
 if not os.path.exists(path):
     os.makedirs(path)
 
-# Download file
+# Download file with progress bar
 filepath = os.path.join(path, filename)
-urllib.request.urlretrieve(url, filepath)
+with tqdm(unit='B', unit_scale=True, unit_divisor=1024, miniters=1) as t:
+    def reporthook(blocknum, blocksize, totalsize):
+        t.total = totalsize
+        t.update(blocksize)
+    
+    urllib.request.urlretrieve(url, filepath, reporthook)
 
 # Create symbolic link
-os.symlink(filepath, './model.ckpt')
+os.symlink(filepath, '{}/model.ckpt'.format(path))
