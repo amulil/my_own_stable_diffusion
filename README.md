@@ -10,6 +10,10 @@ git submodule update --remote --merge https://github.com/AUTOMATIC1111/stable-di
 ```bash
 git submodule update --remote --merge
 ```
+- clone repo
+```bash
+git clone --recurse-submodules <repository-url>
+```
 
 ## download model
 
@@ -19,8 +23,7 @@ git submodule update --remote --merge
 | | |
 
 ```bash
-# Rename your .ckpt or .safetensors file file to "model.ckpt" or "model.safetensors", and place it in the /models/Stable-diffusionfolder or using link command to link file
-ln -s [model_file] ./model.ckpt
+python script.py --help
 ```
 
 ## example
