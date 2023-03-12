@@ -23,9 +23,20 @@ git clone --recurse-submodules <repository-url>
 | | |
 
 ```bash
+cd stable-diffusion-webui
+pip install -r requirements.txt
 pip install tqdm
 python script.py --help
 ```
 
 ## example
+```bash
+# 
+```
+
+## references
+
+1. https://stable-diffusion-art.com/automatic1111-colab/
+2. https://rentry.org/voldy#-novelai-setup-
+
 
